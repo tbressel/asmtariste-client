@@ -2,13 +2,24 @@
 <div *ngIf="isLoading" class="spinner"></div>
 
 
-<div class="login__wrapper">
-
-  <div class="login__title">
-    <h2>Se connecter</h2>
+<div class="window__wrapper"  [ngClass]="{'hidden': !isWindowOpen}">
+  <div class="window__header">
+    <div class="window__top">
+      <div class="window__caseleft" (click)="closeWindow()"></div>
+      <div class="window__casetitle">
+        <p>Login</p>
+      </div>
+      <div class="window__caseright" (click)="toggleWindow()"></div>
+    </div>
   </div>
 
-  <div class="login__container">
+  <div class="window__bot">
+    <div class="window__state-bar">Nombre d'essais : {{totalError}}</div>
+  </div>
+
+
+  <div class="window__container"  [ngClass]="{'hidden': isWindowToggled}">
+    
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 
       <div class="login__form-group">

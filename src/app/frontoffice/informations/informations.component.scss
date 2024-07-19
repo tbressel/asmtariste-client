@@ -1,11 +1,14 @@
 @import '../../../styles/settings.scss';
 
-.about__container {
 
+.about__container {
+    font-family: 'GemLowRes';
+    width: fit-content;    
     background-color: $grass1;
-    line-height: 1.4rem;
+    border: 2px solid $black;
+    
+    p { 
         
-    p {       
         color: $black;
         margin: 5px;
         text-align: center;
@@ -16,13 +19,15 @@
         justify-content: center;
         flex-direction: column;
         align-items: center;
+        margin: 5px;
+        border: 5px solid $black;
+        width: fit-content;    
 
         .about__header {
             display: flex;
             flex-direction: column;
             align-items: center;
             margin: 10px;
-
             border-bottom: 2px dotted $black;            
         }
 

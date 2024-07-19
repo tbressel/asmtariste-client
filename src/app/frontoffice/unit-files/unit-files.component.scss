@@ -1,114 +1,5 @@
 @import '../../../styles/settings.scss';
-
-
-.unit-files-list__wrapper {
-  width: max-content;
-  display: block;
-  position: relative;
-
-  // asmtariste style
-  top: -50px;
-  border: 1px solid $black;
-  box-shadow: $black 2px 4px 0px 0px;
-  background-color: $white;
-  margin: 20px 0;
-  font-family: 'GemLowRes';
-
-  &.hidden {
-    display: none;
-  }
-
-  //
-
-  .unit-files-list__header {
-    .unit-files-list__top {
-      // asmatariste style
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      //
-
-      .unit-files-list__caseleft,
-      .unit-files-list__caseright {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        border: 2px solid $grass12;
-        width: 40px;
-        height: auto;
-        padding: 2px
-      }
-
-      .unit-files-list__caseleft {
-        border-right: 1px;
-
-        &::after {
-          content: "";
-          background: url('../../../assets/img/icons/atari-cross-window.png') no-repeat center;
-          background-size: auto 1.2rem;
-          width: 1.2rem;
-          height: 1.2rem;
-
-        }
-      }
-
-      .unit-files-list__caseright {
-        border-left: 1px;
-
-        &::after {
-          content: "";
-          background: url('../../../assets/img/icons/atari-circle-window.png') no-repeat center;
-          background-size: auto 1.2rem;
-          width: 1.2rem;
-          height: 1.2rem;
-        }
-      }
-
-
-
-
-      .unit-files-list__casetitle {
-        display: $files-title-display;
-        // asmatariste style
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        background-image: radial-gradient(#65BA74 1px, #B2DDB5 2px);
-        background-size: 3px 3px;
-        border: 2px solid #203C25;
-
-        p {
-          padding: 5px 10px;
-          background-color: $grass1;
-          width: fit-content;
-        }
-
-        //
-      }
-
-    }
-  }
-
-  .unit-files-list__bot {
-
-    .unit-files-list__state-bar {
-      // asmatariste style
-      display: $files-state-display;
-      flex-direction: column;
-      align-items: flex-start;
-      border: 2px solid $grass12;
-      border-top: 1px;
-      height: auto;
-      padding: 5px;
-      word-break: break-all;
-      //
-
-      p {
-
-        display: $files-title-display;
-      }
+@import '../../../styles/windows.scss';
 
       .unit-files-list__content {
         // asmatariste style
@@ -135,9 +26,7 @@
           }
         }
       }
-    }
-  }
-}
+
 
 
 @media screen and (min-width: 750px) {

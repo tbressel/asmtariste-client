@@ -1,18 +1,18 @@
 <div *ngIf="isLoading" class="mask"></div>
 <div *ngIf="isLoading" class="spinner"></div>
 
-<div class="unit-files-list__wrapper">
-    <div class="unit-files-list__header">
-        <div class="unit-files-list__top">
-            <div class="unit-files-list__caseleft" (click)="closeWindow()"></div>
-            <div *ngIf="dataFiles" class="unit-files-list__casetitle">
+<div class="window__wrapper">
+    <div class="window__header">
+        <div class="window__top">
+            <div class="window__caseleft" (click)="closeWindow()"></div>
+            <div *ngIf="dataFiles" class="window__casetitle">
                 <p>{{dataFiles.length > 0 ? dataFiles[0].label : "Aucun Fichier"}}</p>
             </div>
-            <div class="unit-files-list__caseright" (click)="hideContent()"></div>
+            <div class="window__caseright" (click)="hideContent()"></div>
         </div>
     </div>
-    <div class="unit-files-list__bot">
-        <div *ngIf="dataFiles &&  dataFiles.length > 0" class="unit-files-list__state-bar">
+    <div class="window__bot">
+        <div *ngIf="dataFiles &&  dataFiles.length > 0" class="window__state-bar">
             nombre de fichier : {{dataFiles.length}}
             <div class="unit-files-list__content" *ngIf="!isContentToggled">
                 <ul>

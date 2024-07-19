@@ -24,7 +24,7 @@ export class NotificationsService {
       'is-logout': 'Souhaitez-vous vous déconnecter ?',
       'logout-success': 'Déconnexion réussie',
       'login-need': 'Vous devez être connecté pour accéder à cette page',
-     
+      'max-attempt-reached': 'Nombre maximum de tentatives atteint'    
     }
 
   // Constructor

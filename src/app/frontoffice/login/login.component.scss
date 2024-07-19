@@ -1,66 +1,45 @@
 @import '../../../styles/settings.scss';
+@import '../../../styles/windows.scss';
 
-.login__wrapper {
-  position: relative;
+
+.login__container {
+
+  display: flex;
+  flex-direction: column;
   padding: 20px 10px;
   box-sizing: border-box;
-
-  .login__title {
-    text-align: left;
-    padding: 5px 0;
-
-    h2 {
-      color: #d25a24;
-      text-transform: uppercase;
-      box-sizing: border-box;
-      font-weight: 600;
-      padding: 5px 10px;
-      border-radius: 15px;
-      background: linear-gradient(45deg, #cdcdcd70, transparent);
-      box-shadow: #0000003d 5px 5px 5px 1px;
-    }
-  }
-
-
-
-  .login__container {
-
-    display: flex;
-    flex-direction: column;
-    padding: 20px 10px;
-    box-sizing: border-box;
-
-    .login__form-group {
-      margin-bottom: 1.5rem;
-      display: flex;
-      flex-direction: column;
-
-      .login__username-container,
-      .login__password-container {
-        display: flex;
-        align-items: center;
-
-        .login__form-control {
-          padding: 0.75rem;
-          border: 1px solid #ccc;
-          border-radius: 4px;
-          font-size: 1rem;
-        }
-
-        .login__toggle-password {
-          background: none;
-          border: none;
-          cursor: pointer;
-
-          i {
-            color: #333;
-          }
-        }
-      }
-
-    }
-  }
 }
+
+.login__form-group {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.login__username-container,
+.login__password-container {
+  display: flex;
+  align-items: center;
+}
+
+.login__form-control {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.login__toggle-password {
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: fit-content;
+}
+
+i {
+  color: #333;
+}
+
 
 
 
@@ -69,5 +48,3 @@
   font-size: 0.8rem;
   font-style: italic;
 }
-
-

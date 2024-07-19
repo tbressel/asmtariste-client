@@ -1,0 +1,117 @@
+.window__wrapper {
+    width: max-content;
+    display: block;
+    position: relative;
+
+    // asmtariste style
+    top: -50px;
+    border: 1px solid $black;
+    box-shadow: $black 2px 4px 0px 0px;
+    background-color: $white;
+    margin: 20px 0;
+    font-family: 'GemLowRes';
+
+    &.hidden {
+        display: none;
+    }
+
+    //
+
+    .window__header {
+        .window__top {
+            // asmatariste style
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            //
+
+            .window__caseleft,
+            .window__caseright {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                border: 2px solid $grass12;
+                width: 40px;
+                height: auto;
+                padding: 2px
+            }
+
+            .window__caseleft {
+                border-right: 1px;
+
+                &::after {
+                    content: "";
+                    background: url('../assets/img/icons/atari-cross-window.png') no-repeat center;
+                    background-size: auto 1.2rem;
+                    width: 1.2rem;
+                    height: 1.2rem;
+
+                }
+            }
+
+            .window__caseright {
+                border-left: 1px;
+
+                &::after {
+                    content: "";
+                    background: url('../assets/img/icons/atari-circle-window.png') no-repeat center;
+                    background-size: auto 1.2rem;
+                    width: 1.2rem;
+                    height: 1.2rem;
+                }
+            }
+
+
+
+
+            .window__casetitle {
+                display: $files-title-display;
+                // asmatariste style
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                background-image: radial-gradient(#65BA74 1px, #B2DDB5 2px);
+                background-size: 3px 3px;
+                border: 2px solid #203C25;
+
+                p {
+                    padding: 5px 10px;
+                    background-color: $grass1;
+                    width: fit-content;
+                }
+
+                //
+            }
+
+        }
+    }
+
+    .window__bot {
+
+        .window__state-bar {
+            // asmatariste style
+            display: $files-state-display;
+            flex-direction: column;
+            align-items: flex-start;
+            border: 2px solid $grass12;
+            border-top: 1px;
+            height: auto;
+            padding: 5px;
+            word-break: break-all;
+            //
+
+            p {
+
+                display: $files-title-display;
+            }
+        }
+    }
+}
+.window__container {
+
+    border: 2px solid black;
+    border-top: none;
+    padding: 10px;
+}
