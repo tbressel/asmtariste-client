@@ -24,6 +24,13 @@ export class SigninComponent {
 
   isLoading: Boolean = false;
 
+      // Window Attributes
+      isWindowOpen = true;      // default value for the window
+      isWindowToggled = false;  // default value for the window's content
+
+            // Error Attributes
+  totalError: number = 0;   // total error count initiaized to zero
+
   constructor(private formBuilder: FormBuilder,
     private notificationsService: NotificationsService,
     private registrationService: RegistrationService,
@@ -118,6 +125,15 @@ export class SigninComponent {
 
           // Reset the form
           this.signinForm.reset();
+
+             // Increment the total error count
+        this.totalError = this.totalError + 1;
+
+        // Redirect to the home page if the total error count is greater than or equal to 4
+        if (this.totalError >= 4) {
+          this.notificationsService.displayNotification(this, 'max-attempt-reached', 2000, '/accueil', 'client', false);
+        }
+
         }
       });
     } else {
@@ -126,4 +142,18 @@ export class SigninComponent {
   }
 
 
+  /**
+   * Closing the window and redirecting to the home page whant clicking on the close button
+   */
+  closeWindow() {
+    this.isWindowOpen = !this.isWindowOpen;
+    this.router.navigate(['/accueil']);
+  }
+
+/**
+ * Hide or show the window content
+ */
+  toggleWindow() {
+    this.isWindowToggled = !this.isWindowToggled;
+  }
 }

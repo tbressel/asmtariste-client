@@ -18,7 +18,7 @@
   </div>
 
 
-  <div class="window__container"  [ngClass]="{'hidden': isWindowToggled}">
+  <div class="window__container"  *ngIf="!isWindowToggled">
     
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 

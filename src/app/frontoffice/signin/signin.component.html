@@ -1,13 +1,24 @@
 <div *ngIf="isLoading" class="mask"></div>
 <div *ngIf="isLoading" class="spinner"></div>
 
-<div class="signin__wrapper">
 
-  <div class="signin__title">
-    <h2>S'inscrire</h2>
+<div class="window__wrapper"  [ngClass]="{'hidden': !isWindowOpen}">
+  <div class="window__header">
+    <div class="window__top">
+      <div class="window__caseleft" (click)="closeWindow()"></div>
+      <div class="window__casetitle">
+        <p>S'inscrire</p>
+      </div>
+      <div class="window__caseright" (click)="toggleWindow()"></div>
+    </div>
   </div>
 
-  <div class="signin__container">
+  <div class="window__bot">
+    <div class="window__state-bar">Nombre d'essais : {{totalError}}</div>
+  </div>
+
+
+  <div class="window__container"  *ngIf="!isWindowToggled">
     <form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
 
       <div class="signin__form-group">

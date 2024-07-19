@@ -1,72 +1,43 @@
 @import '../../../styles/settings.scss';
-  
-
-.signin__wrapper {
-  position: relative;
-  padding: 20px 10px;
-  box-sizing: border-box;
-
-  .signin__title {
-    text-align: left;
-    padding: 5px 0;
-
-    h2 {
-      color: #d25a24;
-      text-transform: uppercase;
-      box-sizing: border-box;
-      font-weight: 600;
-      padding: 5px 10px;
-      border-radius: 15px;
-      background: linear-gradient(45deg, #cdcdcd70, transparent);
-      box-shadow: #0000003d 5px 5px 5px 1px;
-    }
-  }
+@import '../../../styles/windows.scss';
 
 
 
-  .signin__container {
+.signin__form-group {
+  margin-bottom: 1.5rem;
+  flex-direction: column;
 
-    display: flex;
-    flex-direction: column;
-    padding: 20px 10px;
-    box-sizing: border-box;
-
-    .signin__form-group {
-      margin-bottom: 1.5rem;
-      flex-direction: column;
-
-      display: flex;
-
-      .signin__username-container,
-      .signin__email-container,
-      .signin__password-container {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-
-
-        .signin__form-control {
-          padding: 0.75rem;
-          border: 1px solid #ccc;
-          border-radius: 4px;
-          font-size: 1rem;
-          box-sizing: border-box;
-        }
-
-        .signin__toggle-password {
-          background: none;
-          border: none;
-          width: fit-content;
-
-          i {
-            color: #333;
-          }
-        }
-      }
-
-    }
-  }
+  display: flex;
 }
+
+.signin__username-container,
+.signin__email-container,
+.signin__password-container {
+  display: flex;
+  align-items: center;
+
+}
+
+.signin__form-control {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.signin__toggle-password {
+  background: none;
+  border: none;
+  width: fit-content;
+}
+
+i {
+  color: #333;
+}
+
+
+
 
 
 .signin__error {
@@ -75,25 +46,25 @@
   font-style: italic;
 }
 
-  button[type='button'] {
-    background: none;
+button[type='button'] {
+  background: none;
 
-  }
-  
-  button:disabled {
-    background-color: $grey;
-    border: none;
-    cursor: not-allowed;
-  }
-  
-  .weak {
-    color: red;
-  }
-  
-  .medium {
-    color: orange;
-  }
-  
-  .strong {
-    color: green;
-  }
+}
+
+button:disabled {
+  background-color: $grey;
+  border: none;
+  cursor: not-allowed;
+}
+
+.weak {
+  color: red;
+}
+
+.medium {
+  color: orange;
+}
+
+.strong {
+  color: green;
+}
