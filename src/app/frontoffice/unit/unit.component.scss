@@ -3,13 +3,22 @@
 
 
 .unit-disk__wrapper {
-    width: $unit-icon-width;
-    max-width: calc($unit-icon-width  + 20px);
+    //asmatariste style
+    width: calc($unit-icon-width + 50px);
+    // width: $unit-icon-width;
+    // max-width: calc($unit-icon-width  + 20px);
+    font-family: $unit-name-font-family;
+    //
 
     .unit-letter__wrapper {
         display: $unit-letter-display;
-        .unit-letter__content {
+        width: fit-content;
+        position: relative;
+        top: 45px;
+        left: 3px;
 
+        .unit-letter__content {
+            width: fit-content;
         }
     }
 
@@ -27,12 +36,73 @@
         }
 
     }
+
+    .unit-name__wrapper {
+        margin-top: 10px;
+        width: fit-content;
+
+        // asmtariste style
+        // text-align: center;
+        //
+        .unit-name__content {
+            font-size: $unit-name-size;
+            color: $unit-name-color;
+        }
+    }
+}
+
+// asmatariste style
+@media screen and (min-width:750px) {
+
+    .unit-disk__wrapper {
+        width: calc($unit-icon-width + 40px);
+
+        .unit-letter__wrapper {
+            font-size: calc($unit-name-size - 0.2rem);
+            top: 35px;
+        }
+
+        .unit-icon__wrapper {
+            .unit-icon__white {
+                width: calc($unit-icon-width - 10px);
+            }
+
+            .unit-icon__black {
+                width: calc($unit-icon-width - 10px);
+            }
+        } 
+
         .unit-name__wrapper {
-            margin-top: 10px;
-            text-align: center;
+            margin-top: 5px;
+
             .unit-name__content {
-                font-size: $unit-name-size;
-                color: $unit-name-color;
+                font-size: calc($unit-name-size - 0.1rem);
             }
         }
+    }
+
+    .unit-disk__wrapper:hover {
+        .unit-letter__wrapper {
+            color: $white;
+            background-color: $black;
+        }
+
+        .unit-icon__wrapper {
+            .unit-icon__white {
+                display: none;
+            }
+
+            .unit-icon__black {
+               display: block;            
+            }
+        } 
+
+        .unit-name__wrapper {        
+            background-color: $black;
+
+            .unit-name__content {
+                color: $white;
+            }
+        }
+    }
 }

@@ -1,24 +1,28 @@
 .banner__wrapper {
-    position: relative;
-    z-index: -1;
-    height: 150px;
-    overflow: hidden;
-    .banner__content {
-        background-image: url('../../../assets/img/mockup/banner800.webp');
-        background-size: contain;
-        background-position: center;
-        height: 400px;
-        animation: animate 20s linear infinite;
-    }
+    // asmtariste style
+   
+    height: 20px;
+    //
+    // position: relative;
+    // z-index: -1;
+    // height: 150px;
+    // overflow: hidden;
+    // .banner__content {
+    //     background-image: url('../../../assets/img/mockup/banner800.webp');
+    //     background-size: contain;
+    //     background-position: center;
+    //     height: 400px;
+    //     animation: animate 20s linear infinite;
+    // }
 }
 
 
-@keyframes animate {
-    0% {
-        transform: rotate(0) translate(1em) rotate(0) scale(1.2);
-    }
-    100% {
-        transform: rotate(360deg) translate(1em) rotate(-360deg) scale(1.2);
-    }
+// @keyframes animate {
+//     0% {
+//         transform: rotate(0) translate(1em) rotate(0) scale(1.2);
+//     }
+//     100% {
+//         transform: rotate(360deg) translate(1em) rotate(-360deg) scale(1.2);
+//     }
     
-}
+// }

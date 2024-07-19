@@ -6,14 +6,16 @@ $font-body: 1rem;
 
 
 // disk unit icon folder
-$unit-letter-display: none;
+$unit-letter-display: block;
 
-$unit-icon-width: 80px;
-$unit-icon0-display: default;
+$unit-icon-width: 40px;
+$unit-icon0-display: block;
 $unit-icon1-display: none;
 
-$unit-name-size: calc($font-body - 0.3rem);
-$unit-name-color: $orange;
+$unit-name-size: calc($font-body - 0rem);
+$unit-name-font-family: 'GemLowRes';
+$unit-name-color: $black;
+$unit-name-color-hover: $white;
 
 // unit files
 $files-title-display: none;

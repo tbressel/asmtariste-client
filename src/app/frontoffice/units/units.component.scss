@@ -3,26 +3,30 @@
 
 
 .unit-disks-list__wrapper {
+
   position: relative;
   padding: 20px 10px;
   box-sizing: border-box;
 
   .unit-disks-list__title {
-    text-align: left;
-    padding: 5px 0;
+    // asmtariste style
+    display: none;
+    // text-align: left;
+    // padding: 5px 0;
+    //
 
-    h2 {
+    // h2 {
       
-        color: #d25a24;
-        text-transform: uppercase;
-        box-sizing: border-box;
-        font-weight: 600;
-        padding: 5px 10px;
-        border-radius: 15px;
-        background: linear-gradient(45deg, #cdcdcd70, transparent);
-        box-shadow: #0000003d 5px 5px 5px 1px;
+    //     color: #d25a24;
+    //     text-transform: uppercase;
+    //     box-sizing: border-box;
+    //     font-weight: 600;
+    //     padding: 5px 10px;
+    //     border-radius: 15px;
+    //     background: linear-gradient(45deg, #cdcdcd70, transparent);
+    //     box-shadow: #0000003d 5px 5px 5px 1px;
     
-    }
+    // }
   }
 .unit-disks-list__folder {
   position: relative;
@@ -33,6 +37,7 @@
   padding: 20px 10px;
   gap: calc($unit-icon-width - 20px);
   box-sizing: border-box;
+  
 
   .unit-disks-list__container {
     text-align: left;
