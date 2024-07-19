@@ -18,6 +18,6 @@ $unit-name-color: $black;
 $unit-name-color-hover: $white;
 
 // unit files
-$files-title-display: none;
-$files-state-display: default;
+$files-title-display: flex;
+$files-state-display: flex;
 $files-name-size: calc($font-body - 0.3rem);

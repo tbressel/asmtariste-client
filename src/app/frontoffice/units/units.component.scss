@@ -27,15 +27,18 @@
     //     box-shadow: #0000003d 5px 5px 5px 1px;
     
     // }
+    
   }
 .unit-disks-list__folder {
   position: relative;
   display: flex;
   flex-direction: row;
   overflow-x: scroll;
-  justify-content: space-between;
+  // asmtariste style
+  // justify-content: space-between;
+  //
   padding: 20px 10px;
-  gap: calc($unit-icon-width - 20px);
+  gap: calc($unit-icon-width + 10px);
   box-sizing: border-box;
   
 
@@ -43,6 +46,14 @@
     text-align: left;
     width: calc($unit-icon-width + 10px);
   }
+    // hide scrollbar for Webkit (Chrome, Safari, etc.)
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  // Mhide scrollbar for IE, Edge
+  -ms-overflow-style: none;
+  // Mhide scrollbar for Firefox
+  scrollbar-width: none;
 }
 
 }

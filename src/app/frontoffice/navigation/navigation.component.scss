@@ -49,12 +49,7 @@
       font-size: calc($font-body + 0.2rem);
     }
   }
-
-
 }
-
-
-
 
 
 .navigation-overlay__mask {
@@ -144,7 +139,7 @@
       overflow: hidden;
       // asmtariste style
       // border-bottom: 1px solid $grey;
-      font-family: 'BarlowMedium';
+      font-family: 'GemLowRes';
 
       //
       a {
@@ -264,7 +259,7 @@
         a {
           max-width: 100%;
           // asmtariste style
-          font-size: $font-body;
+          font-size: calc($font-body - 0.1rem);
           //
         }
 
@@ -302,7 +297,7 @@
         a {
           max-width: 100%;
           // asmtariste style
-          font-size: $font-body;
+          font-size: calc($font-body - 0.1rem);
           //
         }
 

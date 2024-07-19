@@ -13,10 +13,8 @@
     </div>
     <div class="unit-files-list__bot">
         <div *ngIf="dataFiles &&  dataFiles.length > 0" class="unit-files-list__state-bar">
-            <p>
-                nombre de fichier : {{dataFiles.length}}
-            </p>
-            <div class="unit-files-list__content" [ngClass]="{'hidden' : isContentToggled}">
+            nombre de fichier : {{dataFiles.length}}
+            <div class="unit-files-list__content" *ngIf="!isContentToggled">
                 <ul>
                     <li *ngFor="let file of dataFiles">
                         <a [href]="baseUrl + '/downloads/' + file.name">

@@ -63,7 +63,7 @@ constructor(
     this.fileService.getFile(this.diskId).subscribe({
       next: (data: any) => {
         this.dataFiles = data.body;
-
+        
         // The state of the parent component is now the state of the child component
         if (this.isParentWindowOpened !== undefined) {
           this.isChildWindowOpened = this.isParentWindowOpened;
