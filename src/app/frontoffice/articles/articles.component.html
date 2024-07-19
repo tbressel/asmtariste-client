@@ -1,19 +1,26 @@
 <div *ngIf="isLoading" class="mask"></div>
 <div *ngIf="isLoading" class="spinner"></div>
 
-<div class="article-cards-list__wrapper" [ngClass]="{'hidden' : !isWindowOpen}">
 
-    <div class="article-cards-list__header">
-        <div class="article-cards-list__top">
-            <div class="article-cards-list__casetitle">
-                <h2>
-                    {{title}}
-                </h2>
-            </div>
+<div class="window__wrapper"  [ngClass]="{'hidden': !isWindowOpen}">
+    <div class="window__header">
+      <div class="window__top">
+        <div class="window__caseleft" (click)="closeWindow()"></div>
+        <div class="window__casetitle">
+          <p>{{title}}</p>
         </div>
+        <div class="window__caseright" (click)="toggleWindow()"></div>
+      </div>
     </div>
+  
+    <div class="window__bot">
+      <div class="window__state-bar">Nombre d'articles : {{ dataArticles.length }}</div>
+    </div>
+  
+  
+    <div class="window__container"  *ngIf="!isWindowToggled">
 
-    <div class="article-cards-list__content" [ngClass]="{'hidden' : isWindowToggled}">
+    <div class="article-cards-list__content">
         @for (article of dataArticles; track article) {
         <app-arti-card class="article-cards-list__item"[article]="article"></app-arti-card>
         }

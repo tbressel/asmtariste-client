@@ -3,6 +3,20 @@ app-navigation {
     z-index: 3000;
 }
 
+
+
 .desktop{
-    text-align: -webkit-center;
+    
+    position: relative;
+    height: 100vh;
+  
+
+}
+
+@media screen and (min-width: 750px) {
+    .desktop{
+
+        padding: 20px;
+    }
+    
 }

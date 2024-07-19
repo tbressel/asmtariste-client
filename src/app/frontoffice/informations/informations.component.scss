@@ -6,6 +6,10 @@
     width: fit-content;    
     background-color: $grass1;
     border: 2px solid $black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -100%);
     
     p { 
         
