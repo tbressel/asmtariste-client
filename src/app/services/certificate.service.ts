@@ -11,6 +11,9 @@ import { Injectable } from '@angular/core';
 // Type model for async data
 import { Observable } from 'rxjs';
 
+// Models
+import { CertificatesListModel } from '../models/certificate.models';
+
 
 // Configuration
 import { CONFIG } from '../../config';
@@ -81,6 +84,18 @@ export class CertificateService {
         })
       }
         return this.http.get<ViewCertificate[]>(`${CONFIG.baseUrl}/view-certificate/${id}`, httpOptions);
+      }
+
+      /**
+ * 
+ * Get the list of all certificate for all users
+ * 
+ * @param token 
+ * @returns 
+ */
+      getAll(): Observable<CertificatesListModel[]> {
+       
+        return this.http.get<CertificatesListModel[]>(`${CONFIG.baseUrl}/last-certificates`);
       }
     
 }

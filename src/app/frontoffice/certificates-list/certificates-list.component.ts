@@ -81,7 +81,6 @@ ngOnInit(): void {
   this.certificateService.getCertificates(this.token).subscribe({
     next: (data: any) => {
       this.dataCertificates = data.body;
-      console.log(this.dataCertificates);
       this.isLoading = false;
       // this.detector.detectChanges();
     },

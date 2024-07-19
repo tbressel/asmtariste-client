@@ -4,3 +4,12 @@ export class CertificateCardModel {
     creationDate!: Date;
     note!: number;
 }
+
+export class CertificatesListModel {
+    id_certificates!: number;
+    note!: number;
+    creationDate!: Date;
+    username!: string;
+    title!: string;
+    medal!: string;
+}

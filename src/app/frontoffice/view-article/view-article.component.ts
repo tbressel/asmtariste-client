@@ -237,7 +237,6 @@ transformData(data: any[]): QuestionsForm[] {
       next: (data: any) => {
 
         this.note = data.note;
-        console.log('Note : ', this.note);
         this.isLoading = false;
 
         if (data.note >= 13) {
