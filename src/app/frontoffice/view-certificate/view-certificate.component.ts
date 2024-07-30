@@ -1,5 +1,6 @@
 import { Component, ElementRef, ViewChild, OnInit, Inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
@@ -35,10 +36,14 @@ export class ViewCertificateComponent implements OnInit  {
   isNotificationWindow = false;         // default value for the notification window
   notificationMessage: string = '';     // default value for the notification message
 
+  isWindowOpen = true;
+isWindowToggled = false;
+
   constructor(
     private certificateService: CertificateService, 
     private notificationService: NotificationsService,
     private route: ActivatedRoute,
+    private router: Router,
     @Inject(PLATFORM_ID) private platformId: Object
   ) { }
 
@@ -98,4 +103,23 @@ public downloadPDF(): void {
     doc.save('certificate.pdf');
   });
 }
+
+
+  /**
+   * 
+   * Method used to close the window
+   */
+  closeWindow() {
+    this.isWindowOpen = !this.isWindowOpen;
+    this.router.navigate(['/accueil']);
+  }
+
+  /**
+   * 
+   * Method used to toggle the window
+   */
+  toggleWindow() {
+    this.isWindowToggled = !this.isWindowToggled;
+  }
+
 }

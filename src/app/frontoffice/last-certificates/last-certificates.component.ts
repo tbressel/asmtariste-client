@@ -5,6 +5,7 @@
 // Modules
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 
 // Model
@@ -36,9 +37,13 @@ notificationMessage: string = '';
 
 isLoading: Boolean = false;
 
+isWindowOpen = true;
+isWindowToggled = false;
+
  // Constructor
  constructor(private certificateService: CertificateService,
-  private notificationsService: NotificationsService) { }
+  private notificationsService: NotificationsService,
+  private router: Router) { }
 
 
  /**
@@ -78,7 +83,22 @@ isLoading: Boolean = false;
  }
 
 
+  /**
+   * 
+   * Method used to close the window
+   */
+  closeWindow() {
+    this.isWindowOpen = !this.isWindowOpen;
+    this.router.navigate(['/accueil']);
+  }
 
+  /**
+   * 
+   * Method used to toggle the window
+   */
+  toggleWindow() {
+    this.isWindowToggled = !this.isWindowToggled;
+  }
 
 
 }

@@ -1,4 +1,6 @@
 @import '../../../styles/settings.scss';
+@import '../../../styles/fonts.scss';
+@import '../../../styles/windows.scss';
 
 .button {
     display: flex;
@@ -48,11 +50,13 @@
                         .certificate__header {
     
                             .certificate__title {
+                                font-family: 'InterRegular';
                                 color: #AA7729;
                                 font-size: 1.2rem;
-                                }
-    
+                            }
+                            
                             .certificate__school {
+                                font-family: 'InterRegular';
                                 color: #AA7729;
                                 font-size: 0.8rem;
                                 padding: 10px;

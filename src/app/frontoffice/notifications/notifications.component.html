@@ -1,6 +1,25 @@
 <div class="mask"></div>
 <div class="notification__wrapper">
 
+
+<div class="window__wrapper window__size">
+    <div class="window__header">
+        <div class="window__top">
+           
+            <div class="window__casetitle">
+                <p>Alert !</p>
+            </div>
+           
+        </div>
+    </div>
+
+    <div class="window__bot">
+        <div class="window__state-bar"></div>
+    </div>
+
+
+    <div class="window__container">
+
         <div class="notification__window">
             <div class="notification__window--border">
                 <div class="notification__window--center">
@@ -10,9 +29,9 @@
                         </p>
                     </div>
 
-                    <div *ngIf="isChoiceButtons">
-                        <button (click)="onChoice(true)">Confirmer</button>
-                        <button (click)="onChoice(false)">Annuler</button>
+                    <div class="notification__buttons" *ngIf="isChoiceButtons">
+                        <button class="btn-primary" (click)="onChoice(true)">Confirmer</button>
+                        <button class="btn-secondary" (click)="onChoice(false)">Annuler</button>
                       </div>
                 </div>
             </div>

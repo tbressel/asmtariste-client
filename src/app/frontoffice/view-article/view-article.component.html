@@ -2,25 +2,30 @@
 <div *ngIf="isLoading" class="spinner"></div>
 
 
-
-<div class="article-window__wrapper" [ngClass]="{'hidden' : !isWindowOpen}">
-    <div class="article-window__header">
-
-
-        <div class="article-window__top">
-            <div *ngIf="wholeArticle && wholeArticle.length > 0" class="article-window__casetitle">
-                <h2>
-                    {{wholeArticle[0]?.article_title}} {{wholeArticle[0]?.title}}
-                </h2>
+<div class="window__wrapper" *ngIf="wholeArticle && wholeArticle.length > 0" [ngClass]="{'hidden': !isWindowOpen}">
+    <div class="window__header">
+        <div class="window__top">
+            <div class="window__caseleft" (click)="closeWindow()"></div>
+            <div class="window__casetitle">
+                <p>{{wholeArticle[0]?.article_title}} {{wholeArticle[0]?.title}}</p>
             </div>
+            <div class="window__caseright" (click)="toggleWindow()"></div>
         </div>
     </div>
 
-    <div class="article-window__bot">
-       
-        <app-pages  class="article-window__pages" *ngIf="(wholeArticle && wholeArticle.length > 0) && (wholeArticle[0].id_categories === 2 || wholeArticle[0].id_categories === 3)"
+    <div class="window__bot">
+        <app-pages  class="article-window__pages" *ngIf="(wholeArticle && wholeArticle.length > 0)
+            && (wholeArticle[0].id_categories === 2 
+            || wholeArticle[0].id_categories === 3 
+            || wholeArticle[0].id_categories === 4)"
             [wholeArticle]="wholeArticle" [routeTypeProps]="'article-content'"></app-pages>
     </div>
+
+
+    <div class="window__container" *ngIf="!isWindowToggled">
+
+<div class="article-window__wrapper" [ngClass]="{'hidden' : !isWindowOpen}">
+   
 
 
     <div class="article-window__content" [ngClass]="{'hidden' : isWindowToggled}">

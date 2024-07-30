@@ -1,78 +1,67 @@
 @import '../../../styles/settings.scss';
+@import '../../../styles/windows.scss';
 
 
-h2 {
-    color: #d25a24;
-    text-transform: uppercase;
-    box-sizing: border-box;
-    font-weight: 600;
-    padding: 5px 10px;
-    border-radius: 15px;
-    background: linear-gradient(45deg, rgba(205, 205, 205, 0.4392156863), transparent);
-    box-shadow: rgba(0, 0, 0, 0.2392156863) 5px 5px 5px 1px;
-}
 
 .all-certificates__wrapper {
     margin: 20px 10px 0 10px;
-    width: -webkit-fill-available;
 
     .all-certificates__list {
         display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
+        flex-direction: column;
 
         .all-certificates__row {
             width: fit-content;
 
             .certificate-card__header {
                 display: flex;
-            padding: 10px;
+                padding: 10px;
 
-            .certificate-card__logo {
-                height: 50px;
-                width: auto;
-            }
-
-            .certificate-card__details {
-                display: flex;
-                flex-direction: column;
-                justify-content: space-around;
-                padding: 0 10px;
-
-
-                h3 {
-                    font-family: 'InterRegular';
-                    font-weight: 600;
-                    font-size: 0.8rem;
-                    color: $orange;
+                .certificate-card__logo {
+                    height: 50px;
+                    width: auto;
                 }
 
-                .certificate-card__description {
-                    font-style: italic;
-                    font-size: 0.6rem;
-                    
-                    .certificate-card__note {
-                        font-style: normal;
+                .certificate-card__details {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+                    padding: 0 10px;
+
+
+                    h3 {
+                        font-family: 'InterRegular';
                         font-weight: 600;
                         font-size: 0.8rem;
-                        color: red;
+                        color: $orange;
                     }
 
-                    .certificate-card__author {
-                        font-style: normal;
-                        font-weight: 600;
-                        font-size: 0.8rem;
-                        color: rgb(12, 69, 192);
-                    }
-
-                    .certificate-card__date {
-
+                    .certificate-card__description {
                         font-style: italic;
-                    }
+                        font-size: 0.6rem;
 
+                        .certificate-card__note {
+                            font-style: normal;
+                            font-weight: 600;
+                            font-size: 0.8rem;
+                            color: red;
+                        }
+
+                        .certificate-card__author {
+                            font-style: normal;
+                            font-weight: 600;
+                            font-size: 0.8rem;
+                            color: rgb(12, 69, 192);
+                        }
+
+                        .certificate-card__date {
+
+                            font-style: italic;
+                        }
+
+                    }
                 }
             }
         }
     }
 }
-                    }

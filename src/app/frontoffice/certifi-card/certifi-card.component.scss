@@ -36,25 +36,21 @@
             }
 
             .certificate-card__description {
-                display: flex;
+                font-style: italic;
+                font-size: 0.6rem;
 
                 .certificate-card__note {
-
-                    p {
-                        width: 100%;
-                    }
-                }
-
-
-                p {
+                    font-style: normal;
+                    font-weight: 600;
                     font-size: 0.8rem;
-
-                    .certificate-card__author,
-                    .certificate-card__date {
-
-                        font-style: italic;
-                    }
+                    color: red;
                 }
+
+                .certificate-card__date {
+
+                    font-style: italic;
+                }
+
             }
         }
     }

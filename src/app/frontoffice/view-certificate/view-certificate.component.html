@@ -5,75 +5,87 @@
 
 
 
+<div class="window__wrapper window__size" [ngClass]="{'hidden': !isWindowOpen}">
+    <div class="window__header">
+        <div class="window__top">
+            <div class="window__caseleft" (click)="closeWindow()"></div>
+            <div class="window__casetitle">
+                <p>Certificat de Réussite</p>
+            </div>
+            <div class="window__caseright" (click)="toggleWindow()"></div>
+        </div>
+    </div>
 
-
-<div  class="certificate" class="certificate__wrapper">
-    
-    <div>   
-        <button class="btn btn-primary" (click)="downloadPDF()">Télécharger le certificat en PDF</button>
+    <div class="window__bot">
+        <div class="window__state-bar"></div>
     </div>
 
 
-    <div  #certificateElement class="certificate__border_1">
-        <div class="certificate__border_2">
-            <div class="certificate__border_3">
-                <div class="certificate__border_4">
-                    
+    <div class="window__container" *ngIf="!isWindowToggled">
 
-                    <header class="certificate__header">
-                        <h1 class="certificate__title">
-                            <p>CERTIFICAT DE RÉUSSITE</p>
-                        </h1>
-                        <h2 class="certificate__school">
-                            <p>ASMtariSTe</p>
-                        </h2>
-                    </header>
 
-                    <main class="certificate__main">
-                        <p class="certificate__p">atteste que</p>
+        <div class="certificate" class="certificate__wrapper">
 
-                        <h3 class="certificate__student">
-                            <p>
-                                {{username}}
-                            </p>
-                        </h3>
+            <div #certificateElement class="certificate__border_1">
+                <div class="certificate__border_2">
+                    <div class="certificate__border_3">
+                        <div class="certificate__border_4">
 
-                        <p class="certificate__p">
-                            a validé et obtenu le certificat de :
-                        </p>
 
-                        <h4 class="certificate__lesson">
-                            <p>
-                                "{{title}}"
-                            </p>
-                        </h4>
+                            <header class="certificate__header">
+                                <h1 class="certificate__title">
+                                    <p>CERTIFICAT DE RÉUSSITE</p>
+                                </h1>
+                                <h2 class="certificate__school">
+                                    <p>ASMtariSTe</p>
+                                </h2>
+                            </header>
 
-                        <p class="certificate__date">
-                            Fait à Caen, le <time>{{date | date: 'mediumDate'}}</time>
-                        </p>
-                    </main>
-                    <footer class="certificate__footer">
+                            <main class="certificate__main">
+                                <p class="certificate__p">atteste que</p>
 
-                        <p class="certificate__signature">
-                            <img src="assets/img/signature.png" alt="Signature">
-                        </p>
-                        <div>
+                                <h3 class="certificate__student">
+                                    <p>
+                                        {{username}}
+                                    </p>
+                                </h3>
 
+                                <p class="certificate__p">
+                                    a validé et obtenu le certificat de :
+                                </p>
+
+                                <h4 class="certificate__lesson">
+                                    <p>
+                                        "{{title}}"
+                                    </p>
+                                </h4>
+
+                                <p class="certificate__date">
+                                    Fait à Caen, le <time>{{date | date: 'mediumDate'}}</time>
+                                </p>
+                            </main>
+                            <footer class="certificate__footer">
+
+                                <p class="certificate__signature">
+                                    <img src="assets/img/signature.png" alt="Signature">
+                                </p>
+                                <div>
+
+                                </div>
+                                <p class="certificate__author">
+                                    Zisquier
+                                </p>
+                                <p class="certificate__author-role">
+                                    Fondateur de www.asmtariste.fr
+                                </p>
+                            </footer>
                         </div>
-                        <p class="certificate__author">
-                            Zisquier
-                        </p>
-                        <p class="certificate__author-role">
-                            Fondateur de www.asmtariste.fr
-                        </p>
-                    </footer>
-
-
-
-
+                    </div>
                 </div>
             </div>
 
+            <div>
+                <button class="btn btn-primary" (click)="downloadPDF()">Télécharger le certificat en PDF</button>
+            </div>
         </div>
     </div>
-</div>

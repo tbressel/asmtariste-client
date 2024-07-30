@@ -1,3 +1,7 @@
+.window__size {
+    width: max-content;
+  }
+
 .window__wrapper {
     display: block;
     position: relative;
@@ -9,7 +13,7 @@
     background-color: $white;
     margin: 20px 0;
     font-family: 'GemLowRes';
-    width: max-content;
+    // width: max-content;
 
     &.hidden {
         display: none;

@@ -4,27 +4,47 @@
 <app-notifications *ngIf="isNotificationWindow" [notificationMessage]="notificationMessage"></app-notifications>
 
 
-<div class="all-certificates__wrapper" *ngIf="dataAllArticles && dataAllArticles.length > 0">
-    <div class="unit-disks-list__title">
-        <h2>The Wall of Fame</h2>
+<div class="window__wrapper" [ngClass]="{'hidden': !isWindowOpen}">
+    <div class="window__header">
+        <div class="window__top">
+            <div class="window__caseleft" (click)="closeWindow()"></div>
+            <div class="window__casetitle">
+                <p>The Wall Of Fame</p>
+            </div>
+            <div class="window__caseright" (click)="toggleWindow()"></div>
+        </div>
     </div>
-    <div class="all-certificates__list">
 
-        <ul class="all-certificates__row" *ngFor="let article of dataAllArticles">
+    <div class="window__bot">
+        <div class="window__state-bar"></div>
+    </div>
 
-            <li class="certificate-card__header">
-                <img class="certificate-card__logo" src="./assets/img/medals/{{ article.medal }}" alt="medal">
-                <div class="certificate-card__details">
-                    <h3>{{ article.title}}</h3>
-                    <div class="certificate-card__description">
-                        <span class="certificate-card__note">{{ article.note}} / 20</span> - attribué à Mr.
-                        <span class="certificate-card__author">{{ article.username}}</span> le 
-                        <span class="certificate-card__date">{{article.creationDate | date: 'mediumDate'}}</span>
-                    </div>
-                </div>
-            </li>
 
-        </ul>
+    <div class="window__container" *ngIf="!isWindowToggled">
 
+
+        <div class="all-certificates__wrapper" *ngIf="dataAllArticles && dataAllArticles.length > 0">
+
+            <div class="all-certificates__list">
+
+                <ul class="all-certificates__row" *ngFor="let article of dataAllArticles">
+
+                    <li class="certificate-card__header">
+                        <img class="certificate-card__logo" src="./assets/img/medals/{{ article.medal }}" alt="medal">
+                        <div class="certificate-card__details">
+                            <h3>{{ article.title}}</h3>
+                            <div class="certificate-card__description">
+                                <span class="certificate-card__note">{{ article.note}} / 20</span> - attribué à Mr.
+                                <span class="certificate-card__author">{{ article.username}}</span> le
+                                <span class="certificate-card__date">{{article.creationDate | date:
+                                    'mediumDate'}}</span>
+                            </div>
+                        </div>
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
     </div>
 </div>

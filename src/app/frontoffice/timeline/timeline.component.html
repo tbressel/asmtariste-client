@@ -1,6 +1,8 @@
 
-<section>
-    <app-notifications *ngIf="isNotificationWindow" [notificationMessage]="notificationMessage"></app-notifications>
+
+<app-notifications *ngIf="isNotificationWindow" [notificationMessage]="notificationMessage"></app-notifications>
+
+<section *ngIf="(wholeArticle[0]?.page !== 0)">
     <p class="timeline__icon">🏁</p>
     <nav class="timeline">
         <div class="timeline__inner">
@@ -19,8 +21,19 @@
     <p class="timeline__icon">🏆</p>
 </section>
 
-<div class="timeline__chapter-button" *ngIf="(wholeArticle[0]?.page <= wholeArticle[0]?.max_page)">
+<div class="timeline__chapter-button" 
+*ngIf="(wholeArticle[0]?.page <= wholeArticle[0]?.max_page)
+    && (wholeArticle[0]?.page !== 0)
+    && (getTotalVisitedPages(wholeArticle[0].id_articles+'') !== wholeArticle[0]?.max_page)">
     <form (submit)="goToNextChapter(wholeArticle[0]?.id_articles, wholeArticle[0]?.page, wholeArticle[0]?.max_page); $event.preventDefault()">
         <button class="btn btn-primary" type="submit">J'ai terminé ce chapitre je passe au suivant</button>
+    </form>
+</div>
+
+<div class="timeline__chapter-button" 
+*ngIf="(getTotalVisitedPages(wholeArticle[0].id_articles+'') === wholeArticle[0]?.max_page)
+        && (wholeArticle[0]?.page !== 0)">
+    <form (submit)="goToNextChapter(wholeArticle[0]?.id_articles, wholeArticle[0]?.page, wholeArticle[0]?.max_page); $event.preventDefault()">
+        <button class="btn btn-primary" type="submit">Passer la certification</button>
     </form>
 </div>

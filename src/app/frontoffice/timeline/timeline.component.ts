@@ -8,8 +8,8 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterModule, Router } from '@angular/router';
 
 // Service
-import { CertificateService } from '../../services/certificate.service';
 import { NotificationsService } from '../../services/notifications.service';
+import { RegistrationService } from '../../services/registration.service';
 
 // Components
 import { NotificationsComponent } from '../notifications/notifications.component';
@@ -28,8 +28,6 @@ import { CONFIG } from '../../../config';
 })
 
 
-
-
 export class TimelineComponent implements OnInit {
 
   // Inputs
@@ -45,7 +43,6 @@ export class TimelineComponent implements OnInit {
   // Certificate Attributes
   // isCertificate: boolean = false;
   id_articles: number | undefined = 0;
-
   token: string | null = '';
 
   // Notification Attributes
@@ -56,8 +53,8 @@ export class TimelineComponent implements OnInit {
   // Constructor
   constructor(
     private router: Router,
-    private certificateService: CertificateService,
-    private notificationServices: NotificationsService,
+    private registrationService: RegistrationService,
+    private notificationsService: NotificationsService,
 
     @Inject(PLATFORM_ID) private platformId: Object
   ) { }
@@ -77,12 +74,13 @@ export class TimelineComponent implements OnInit {
     }
   }
 
-
-  /**
-   * 
-   * Method used to get the pages array
-   */
-  getPagesArray() {
+  
+ /**
+  * 
+ * Method used to get a new array with the number of pages to display cluster in the timeline
+ * @returns number[]
+ */
+  getPagesArray(): number[] {
     const maxPage = this.wholeArticle[0]?.max_page || 0;
     return new Array(maxPage).fill(null).map((_, index) => index + 1);
   }
@@ -90,7 +88,7 @@ export class TimelineComponent implements OnInit {
 
   /**
    * 
-   * Methode to manage every chaging of page / chapter
+   * Methode to manage every chaging of page / chapter when user click on the button "Go to next chapter"
    * When max page is reached, we await for the token validity
    * If the token is valid, we get the new certificate
    * 
@@ -111,19 +109,32 @@ export class TimelineComponent implements OnInit {
 
     // check if the user has visited all the pages
     if (this.getTotalVisitedPages(uniqueId) >= maxPage) {
-      this.router.navigate([`/article-content/${id_article}/0`]);
 
-    
+      // check if the user is logged
+      const isUserLogged: boolean = this.registrationService.isLoggedIn()
+
+      if (isUserLogged) {
+        this.wholeArticle[0].page = 0;
+        this.router.navigate([`/article-content/${id_article}/0`]);
+      } else {
+        this.notificationsService.displayNotification(this, 'login-need', 3000, null, 'client', false);
+      }
     } else {
       this.router.navigate([`/article-content/${id_article}/${page + 1}`]);
     }
   }
 
 
-
-
-
-
+/**
+ * 
+ * Method used to check if the page has been visited
+ * If it is, return true, else return false
+ * It's used to know which cluster to color in the timeline
+ * 
+ * @param id 
+ * @param page 
+ * @returns 
+ */
   isPageVisited(id: number, page: number): boolean {
     if (isPlatformBrowser(this.platformId)) {
       const uniqueId = `${id}_${page}`;
@@ -137,10 +148,13 @@ export class TimelineComponent implements OnInit {
   }
 
 
-
-
-
-
+/**
+ * 
+ * Method used to get the total number of pages visited by the user for the current article
+ * 
+ * @param uniqueId 
+ * @returns 
+ */
   getTotalVisitedPages(uniqueId: string): number {
 
     // get the  current article id
@@ -154,36 +168,6 @@ export class TimelineComponent implements OnInit {
     return count;
   }
 
-  /**
-  * 
-  * Methode to show a notification
-  * 
-  * @param display active or not the notification selected by ngIf in html
-  * @param type could be a key or a message
-  * @param timer duration when the notification is displayed
-  * @param redirect route to redirect after the notification is displayed
-  * @param origin values to define witch type of error is displayed 'client'(key) or 'server'(value) 
-  */
-  showNotification(display: boolean, type: string, timer: number = 0, redirect?: string, origin?: string) {
 
-    // Most of time set to true to display the notification
-    this.isNotificationWindow = display;
-
-    if (origin === 'client' || origin === undefined) {
-      this.notificationMessage = this.notificationServices.getNotificationMessage(type);
-    } else if (origin === 'server') {
-      this.notificationMessage = type;
-    }
-
-    if (display && timer > 0) {
-      setTimeout(() => {
-        this.isNotificationWindow = false;
-
-        if (redirect !== undefined) {
-          this.router.navigate([redirect]);
-        }
-      }, timer);
-    }
-  }
 
 }

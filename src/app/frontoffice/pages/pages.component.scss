@@ -2,32 +2,64 @@
 
 
 .active {
-    border-radius: 50%;
-    background-color: $orange;
+    font-family: 'GemLowRes';
+    // asmtariste style
+    // border-radius: 50%;
+    // background-color: $orange;
+    border: 5px solid black !important;
+  
 }
 
 .link-disabled {
+    font-family: 'GemLowRes';
     pointer-events: none;
     color: $grey;
+    border: 5px solid $grey !important;
+    background-color: $white !important;
+    
+    &:hover{
+        
+        background-color: $grey !important;
+        border: 5px solid  white;
+
+        color: white;
+    }
 }
 
 
 
 .article__pages--top,
 .article__pages--bot {
+    font-family: 'GemLowRes';
     display: flex;
     justify-content: space-between;
-    .article__pages--left {
-        display: flex;
-        align-items: center;
-        width: fit-content;
-        font-size: calc($font-body - 0.3rem);
-    }
+    border-left: 2px solid;
+    border-right: 2px solid;
+    padding: 10px;
+
+    .article__pages--left,
     .article__pages--right {
         display: flex;
         align-items: center;
         width: fit-content;
         font-size: calc($font-body - 0.3rem);
+
+        a {
+            background-color: white;
+            border: 5px solid black;
+            padding: 5px;
+            margin-bottom: 5px;
+        }
+        
+        &:hover {
+            cursor: pointer;
+            a {                
+                background-color: black;
+                border: 5px solid  white;
+                color: white;
+            }
+            // width: 100px;
+        }
     }
 
         .article__pages--center {
@@ -36,10 +68,11 @@
             width: fit-content;
     
             li {
-                margin-left: 10px;
-                margin-right: 10px;
+                margin-left: 5px;
+                margin-right: 5px;
                 padding: 10px;
                 text-align: center;
+                border: 5px solid  white;
             }
         }
 }

@@ -52,6 +52,7 @@ ngOnInit(): void {
   this.unitService.getAll().subscribe({
     next: (data: any) => {
       this.dataInterface = data.body;
+      // console.log(this.dataInterface);
       this.isLoading = false;
     },
     error: (error: any) => {

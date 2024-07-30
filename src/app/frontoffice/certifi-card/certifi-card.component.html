@@ -6,9 +6,9 @@
         <div class="certificate-card__details">
             <h3>{{ certification.title}}</h3>
             <div class="certificate-card__description">
-
-                <p class="certificate-card__note">{{ certification.note}} / 20</p>
-
+                <span class="certificate-card__note">{{ certification.note}} / 20</span> - attribué le
+                <span class="certificate-card__date">{{certification.creationDate | date:
+                    'mediumDate'}}</span>
             </div>
         </div>
     </div>

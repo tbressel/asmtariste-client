@@ -1,0 +1,143 @@
+﻿<!DOCTYPE HTML>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta name="description" content="Javascript based Atari ST Emulator">
+<meta name="keywords" content="JavaScript, Atari, ST, Emulator, EstyJs">
+<meta name="author" content="Darren Coles">
+<html>
+
+<head>
+    <title>EstyJs</title>
+    <link href='http://fonts.googleapis.com/css?family=Fauna+One' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="css/estyjs.css" />
+    <link href="css/jquery-ui-1.10.3.custom.min.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+   
+    
+    <div id="estyjs">
+        <canvas id="EstyJsOutput" width="640" height="400">
+        </canvas>
+        <div id="buttonpanel">
+            <small><button id="btnFullscreen" onclick="fullScreen();">Expand</button></small>
+            <small><button id="btnLocked" onclick="lockMouse();">Lock</button></small>
+            <small><button onclick="reset()" id="btnReset">Reset</button></small>
+            <small><button onclick="pauseResume()" id="btnPause">Pause</button></small>
+            <small><button onclick="soundToggle()" id="btnSound">Turn sound on</button></small>
+            <br />
+            <div style="margin: 0px; padding:0px; clear: both; height: 6px">
+                &nbsp;
+            </div>
+            <input type="file" id="selectedFile" accept=".sts,.st,.msa,.zip" style="display: none;" />
+            <input type="file" id="selectedFileB" accept=".sts,.st,.msa,.zip" style="display: none;" />
+            <select id="diskImages">
+                <option value="./assets/games/Another World (1991)(Delphine)(Disk 1 of 2)[cr Elite][t][a].st">Another world - disk 1
+                </option>
+                <option value="./assets/games/Another World (1991)(Delphine)(Disk 2 of 2)[cr Elite].st">Another world - disk 2</option>
+                <option value="./assets/games/Atomino (1990)(Psygnosis)(M3)[cr Empire].st">Atomino</option>
+                <option value="./assets/games/Batman - The Movie (1989)(Ocean)[cr Atarilegend][t].st">Batman the movie</option>
+                <option value="./assets/games/Bubble Bobble (1987)(Firebird)[cr TEX][t].st">Bubble bobble</option>
+                <option value="./assets/games/Buggy Boy (1988)(Elite)[cr Bladerunners].st">Buggy boy</option>
+                <option value="./assets/games/Carrier Command (1988)(Rainbird).st">Carrier command</option>
+                <option value="./assets/games/Chaos Engine, The (1993)(Renegade)(Disk 1 of 2)[cr Cynix].st">Chaos Engine - disk 1
+                </option>
+                <option value="./assets/games/Chaos Engine, The (1993)(Renegade)(Disk 2 of 2)[cr Cynix].st">Chaos Engine - disk 2
+                </option>
+                <option value="./assets/games/Chuck Rock (1991)(Core Design)(Disk 1 of 2)[cr Hotline][t2].st">Chuck rock - disk 1
+                </option>
+                <option value="./assets/games/Chuck Rock (1991)(Core Design)(Disk 2 of 2)[cr Hotline][t2].st">Chuck rock - disk 2
+                </option>
+                <option value="./assets/games/Continental Circus (1989)(Sales Curve)[cr Medway Boys][a2][one disk].st">Continental
+                    circus</option>
+                <option value="./assets/games/Deuteros (1991)(Activision)(M3)(Disk 1 of 2)[cr Replicants].st">Deuteros - disk 1
+                </option>
+                <option value="./assets/games/Deuteros (1991)(Activision)(M3)(Disk 2 of 2)[cr Replicants].st">Deuteros - disk 2
+                </option>
+                <option value="./assets/games/Dragon Breed (1989)(Activision)[cr Replicants][t][a].st">Dragon breed</option>
+                <option value="./assets/games/DungeonMasterAtariST.st">Dungeon master</option>
+                <option value="./assets/games/Exile (1991)(Audiogenic)[cr Factory].st">Exile (doesnt work)</option>
+                <option value="./assets/games/Fire and Ice (1992)(Graftgold)(Disk 1 of 2)[cr Cynix].st">Fire and ice - disk 1</option>
+                <option value="./assets/games/Fire and Ice (1992)(Graftgold)(Disk 2 of 2)[cr Cynix].st">Fire and ice - disk 2</option>
+                <option value="./assets/games/Frontier - Elite II (1993)(Frontier Developments)(SW).st">Frontier</option>
+                <option value="./assets/games/Gauntlet II (1986)(Atari Corp.)[cr Medway Boys][t][one disk].st">Gauntlet II</option>
+                <option value="./assets/games/Ghosts 'n' Goblins (1990)(Elite)[cr][t3].st">Ghosts and goblins</option>
+                <option value="./assets/games/Gods (1991)(Renegade)[cr Vmax][t2][one disk].st">Gods</option>
+                <option value="./assets/games/Indy Heat (1992)(Sales Curve)[cr Elite].st">Indy Heat</option>
+                <option value="./assets/games/International Karate plus (1988)(System 3).st">IK+</option>
+                <option value="./assets/games/James Pond II - Codename Robocod (1992)(Vectordean)[cr Elite][t].st">James Pond II
+                </option>
+                <option value="./assets/games/Kick Off (1989)(Anco)[cr Delight].st">Kick off</option>
+                <option value="./assets/games/Kid Gloves (19xx)(Millennium)[cr ACF][t].st">Kid Gloves</option>
+                <option value="./assets/games/Lemmings (1990)(Psygnosis)[cr Replicants - ST Amigos][t2].st">Lemmings</option>
+                <option value="./assets/games/Lotus Esprit Turbo Challenge (1990)(Gremlin)[cr Empire][a].st">Lotus esprit</option>
+                <option value="./assets/games/Nebulus (1988)(Hewson)[cr Atarilegend].st">Nebulus</option>
+                <option value="./assets/games/Nitro (1990)(Psygnosis)[cr Empire][t][a].st">Nitro</option>
+                <option value="./assets/games/No Second Price (1993)(Thalion)[cr Superior].st">No second prize</option>
+                <option value="./assets/games/Oids (1987)(FTL)[cr Was -Not Was-].st">Oids</option>
+                <option value="./assets/games/Pang (1990)(Ocean)[cr Replicants][t][a].st">Pang (no bottom border)</option>
+                <option value="./assets/games/Prince of Persia (1990)(Broderbund)[m].st">Prince of persia</option>
+                <option value="./assets/games/Rick Dangerous (1989)(Core Design - Firebird)[cr Medway Boys][t].st">Rick dangerous
+                </option>
+                <option value="./assets/games/Saint Dragon (1990)(Sales Curve)[cr Replicants][t].st">Saint dragon</option>
+                <option value="./assets/games/Sensible Soccer (1992)(Renegade)(M4)(Disk 1 of 2)[cr ICS].st">Sensible soccer - disk 1
+                </option>
+                <option value="./assets/games/Sensible Soccer (1992)(Renegade)(M4)(Disk 2 of 2)[cr ICS].st">Sensible soccer - disk 2
+                </option>
+                <option value="./assets/games/Speedball 2 - Brutal Deluxe (1990)(Image Works)[cr Replicants - ST Amigos].st">Speedball
+                    2</option>
+                <option value="./assets/games/Stunt Car Racer (1989)(Micro Style)[cr].st">Stunt car racer</option>
+                <option value="./assets/games/Super Cars II (1991)(Gremlin)[cr Elite].st">Supercars II</option>
+                <option value="./assets/games/Toki (1991)(Ocean)[cr BBC - Medway Boys][t].st">Toki</option>
+                <option value="./assets/games/Turrican II (1991)(Rainbow Arts)[cr Replicants][t].st">Turrican II</option>
+                <option value="./assets/games/Vroom (1991)(Lankhor).st">Vroom</option>
+            </select>
+            <small><button onclick="openFileInDrive($('#diskImages').val(),'A');" id="Button1">Drive A</button></small>
+            <small><button onclick="openFileInDrive($('#diskImages').val(),'B');" id="Buttonw">Drive B</button></small>
+            <small><button onclick="document.getElementById('selectedFile').click();" id="btnBrowse">Browse
+                    (A)</button></small>
+            <small><button onclick="document.getElementById('selectedFileB').click();" id="Button2">Browse
+                    (B)</button></small>
+            <small><button onclick="openFile()" style="display: none;" id="btnOpen">Open</button></small>
+            <br />
+            <div style="margin: 0px; padding:0px; clear: both; height: 6px">
+                &nbsp;
+            </div>
+            <input type="checkbox" id="joystick" checked="checked" onclick="changeJoystick()">Joystick</input>
+            <input type="checkbox" id="showpct" onclick="changeShowPct()">Show Speed</input>
+            <input type="checkbox" id="frameskip" onclick="changeFrameskip()">Frameskip</input>
+            <input type="checkbox" id="ram" checked="checked" onclick="changeRamSize()">1Meg</input>
+        </div>
+    </div>
+
+    <script src="jquery/jquery-1.9.1.js"></script>
+    <script src="jquery/jquery-ui-1.10.3.custom.min.js"></script>
+
+    <script src="./script/estyjs.js"></script>
+    <script src="./script/processor.js"></script>
+    <script src="./script/keyboard.js"></script>
+    <script src="./script/mfp.js"></script>
+    <script src="./script/fdc.js"></script>
+    <script src="./script/io.js"></script>
+    <script src="./script/bug.js"></script>
+    <script src="./script/display.js"></script>
+    <script src="./script/memory.js"></script>
+    <script src="./script/snapshot.js"></script>
+    <script src="./script/sound.js"></script>
+    <script src="./script/main.js"></script>
+    <script src="./script/files.js"></script>
+    <script src="./script/js-unzip.js"></script>
+    <script src="./script/rawinflate.js"></script>
+
+
+    <script>
+        $(function () {
+            $("button").button();
+            document.getElementById('selectedFile').addEventListener('change', fileSelected, false);
+            document.getElementById('selectedFileB').addEventListener('change', fileSelected2, false);
+            $("#accordion").accordion();
+            estyjs = EstyJs("EstyJsOutput");
+        });
+    </script>
+</body>
+
+</html>

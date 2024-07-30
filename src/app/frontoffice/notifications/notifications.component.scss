@@ -1,5 +1,5 @@
 @import '../../../styles/settings.scss';
-
+@import '../../../styles/windows.scss';
 
 .notification__wrapper {
     position: fixed;
@@ -12,12 +12,18 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-color: #ffffff;
     height: 100px;
     width: -webkit-fill-available;
     margin: 0 10px;
     line-height: 1.5rem;
-    font-size: 0.8rem;
-    box-shadow: rgba(0, 0, 0, 0.8) 2px 2px 15px 2px;
-    border-radius: 10px;
+    font-size: 1rem;
+}
+
+.notification__buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    word-wrap: break-word;
+    gap: 1rem;
 }
