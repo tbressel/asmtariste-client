@@ -168,6 +168,8 @@ export class TimelineComponent implements OnInit {
     return count;
   }
 
-
+isRegistered(): boolean {
+  return this.registrationService.isLoggedIn()
+}
 
 }
