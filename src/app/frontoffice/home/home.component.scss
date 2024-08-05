@@ -1,0 +1,16 @@
+.home__windows {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: top;
+    margin: 20px 0;
+}
+
+@media screen and (min-width: 750px) {
+    
+    .home__windows {
+
+    flex-direction: row;
+
+}
+}

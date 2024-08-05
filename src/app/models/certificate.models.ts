@@ -13,3 +13,15 @@ export class CertificatesListModel {
     title!: string;
     medal!: string;
 }
+
+export class CertificatesAverageModel {
+    id_users!: number;
+    moyenne!: number;
+    notes!: string;
+    username!: string;
+}   
+
+export class CertificatesNotesMedals {
+    note!: number;
+    medal!: string;
+}   

@@ -1,0 +1,78 @@
+@import '../../../styles/settings.scss';
+@import '../../../styles/windows.scss';
+
+.all-certificates__wrapper {
+    .all-certificates__list {
+        .all-certificates__row {
+            border: 1px solid black;
+            padding: 10px;
+            margin: 0 0 10px 0;
+
+            .certificate-card__description {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+
+                .certificate-card__top {
+                    display: flex;
+
+                    .certificate-card__place {
+                        width: fit-content;
+                        min-width: 50px;
+                    }
+
+                    .certificate-card__username {
+                        width: fit-content;
+                        min-width: 150px;
+                    }
+                }
+
+                .certificate-card__body {
+                    display: flex;
+
+                    .certificate-card__results {
+                        display: flex;
+                        flex-direction: column;
+                        width: fit-content;
+
+                        .certificate-card__note {
+                            font-size: calc($font-body - 0.3rem);
+                            text-align: center;
+
+                        }
+
+                        .certificate-card__medal {
+                            width: 20px;
+                            margin: 5px 8px;
+                        }
+                    }
+                }
+
+                .certificate-card__average {
+                    text-align: right;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 750px) {
+    .all-certificates__wrapper {
+        .all-certificates__list {
+            .all-certificates__row {
+                .certificate-card__description {
+                    flex-direction: row;
+
+                    .certificate-card__top {
+                        max-width: 150px;
+
+                    .certificate-card__username {
+                        min-width: fit-content;
+                    }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,50 @@
+<div *ngIf="isLoading" class="mask"></div>
+<div *ngIf="isLoading" class="spinner"></div>
+
+<app-notifications *ngIf="isNotificationWindow" [notificationMessage]="notificationMessage"></app-notifications>
+
+
+<div class="window__wrapper" [ngClass]="{'hidden': !isWindowOpen}">
+    <div class="window__header">
+        <div class="window__top">
+            <div class="window__caseleft" (click)="closeWindow()"></div>
+            <div class="window__casetitle">
+                <p>Podium</p>
+            </div>
+            <div class="window__caseright" (click)="toggleWindow()"></div>
+        </div>
+    </div>
+
+    <div class="window__bot">
+        <div class="window__state-bar"></div>
+    </div>
+
+
+    <div class="window__container" *ngIf="!isWindowToggled">
+        <span class="color-green">* <span class="color-black asterisque">moyenne réalisée sur la totalité des cours existant. Et oui si tu râtes des cours c'est un zéro ! et PAF !</span></span>        
+        <div class="all-certificates__wrapper" *ngIf="dataCertificateAverages && dataCertificateAverages.length > 0 
+            && parsedDatas && parsedDatas.length > 0">
+ 
+            <div class="all-certificates__list">
+
+                <ul class="all-certificates__row" *ngFor="let userAverage of dataCertificateAverages; let i = index">
+
+                    <div class="certificate-card__description">
+                        <div class="certificate-card__top">
+
+                            <span class="certificate-card__place">n°{{ i + 1}}</span>
+                            <span class="certificate-card__username">{{ userAverage.username}}</span>
+                        </div>
+                            
+                        <div class="certificate-card__body">
+                        <div class="certificate-card__results" *ngFor="let results of parsedDatas[i]">
+                            <img class="certificate-card__medal" src="./assets/img/medals/{{results.medal}}" alt="medal">
+                            <span class="certificate-card__note">{{results.note}}/20</span>
+                        </div>
+                        </div>
+                        <span class="certificate-card__average"> moyenne<span class="color-green">*</span> : <span class="color-red">{{userAverage.moyenne  | number:'1.1-1' }}</span>/20</span>
+                    </div>
+                </ul>
+            </div>
+
+</div>

@@ -97,6 +97,11 @@ export class CertificateService {
        
         return this.http.get<CertificatesListModel[]>(`${CONFIG.baseUrl}/last-certificates`);
       }
+
+
+      getAverage(): Observable<CertificatesListModel[]> {
+        return this.http.get<CertificatesListModel[]>(`${CONFIG.baseUrl}/average-certificate`);
+      }
     
 }
 
