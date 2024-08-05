@@ -64,6 +64,7 @@
 
         .article__pages--center {
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
             width: fit-content;
     
@@ -72,6 +73,7 @@
                 margin-right: 5px;
                 padding: 10px;
                 text-align: center;
+                width: auto;
                 border: 5px solid  white;
             }
         }
